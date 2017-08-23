@@ -1,9 +1,9 @@
 package idv.evan.algorithm.linked;
 
-import idv.evan.algorithm.beans.LinkedList;
-import idv.evan.algorithm.beans.Node;
+import idv.evan.algorithm.linked.beans.Node;
+import idv.evan.algorithm.linked.beans.abs.ALinkedList;
 
-public class SinglyLinkedList<T> extends LinkedList<T> {
+public class SinglyLinkedList<T> extends ALinkedList<T> {
 
 	@Override
 	public void addFirst(T value) {

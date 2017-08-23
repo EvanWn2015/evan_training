@@ -1,4 +1,4 @@
-package idv.evan.algorithm.beans;
+package idv.evan.algorithm.linked.beans;
 
 public class User {
 

@@ -49,7 +49,7 @@
 			<version>2.0.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.zxing/core -->
+		<!--QRCcode encode & edcode -->
 		<dependency>
 			<groupId>com.google.zxing</groupId>
 			<artifactId>core</artifactId>
