@@ -83,7 +83,7 @@ public class ClientHelper {
 	public Location getLocation(String clientIp) throws IOException {
 		return getCityResp(clientIp).getLocation();
 	}
-	
+
 	public Country getCountryByRequest(HttpServletRequest req) throws IOException {
 		return getCityResp(getClientIP(req)).getCountry();
 	}
@@ -113,6 +113,23 @@ public class ClientHelper {
 		return Strings.nullToEmpty(resp.get("X-FORWARDED-FOR"));
 	}
 
+	public String getClientOperatingSystem(HttpServletRequest request) {
+		String userAgent = getRequestHeadersInMap(request).get("USER-AGENT");
+		if (Strings.isNullOrEmpty(userAgent)) {
+			return "UnKnown";
+		} else {
+			userAgent = userAgent.toLowerCase();
+			String userOs = "UnKnown";
+			String[] oss = new String[] { "windows", "mac", "x11", "android", "iphone" };
+			for (String os : oss) {
+				if (userAgent.contains(os)) {
+					userOs = os.replaceFirst(os.substring(0, 1), os.substring(0, 1).toUpperCase());;
+				}
+			}
+			return userOs.equals("X11") ? "Unix" : userOs;
+		}
+	}
+
 	private Map<String, String> getRequestHeadersInMap(HttpServletRequest request) {
 		Map<String, String> result = Maps.newHashMap();
 		Enumeration<String> headerNames = request.getHeaderNames();
@@ -122,5 +139,4 @@ public class ClientHelper {
 		}
 		return result;
 	}
-
 }

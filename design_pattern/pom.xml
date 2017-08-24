@@ -7,7 +7,7 @@
     <artifactId>evan_training</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>idv.evan</groupId>
+  <groupId>idv.evan.design_pattern</groupId>
   <artifactId>design_pattern</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>design_pattern</name>
