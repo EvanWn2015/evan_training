@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>idv.evan</groupId>
-	<artifactId>evan_training</artifactId>
+	<artifactId>evan_core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -26,10 +26,10 @@
 
 	<modules>
 		<module>util</module>
-		<module>algorithm</module>
-		<module>data_structure</module>
-		<module>design_pattern</module>
-		<module>tools</module>
+		<module>evan_algorithm</module>
+		<module>evan_data_structure</module>
+		<module>evan_design_pattern</module>
+		<module>evan_tools</module>
 	</modules>
 
 	<!-- Library Manage -->

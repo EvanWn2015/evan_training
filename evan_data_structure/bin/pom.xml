@@ -4,14 +4,14 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>idv.evan</groupId>
-    <artifactId>evan_training</artifactId>
+    <artifactId>evan_core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>idv.evan.tools</groupId>
-  <artifactId>tools</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>tools</name>
-  <url>http://maven.apache.org</url>
+  <!-- <groupId>idv.evan.data_structure</groupId> -->
+  <artifactId>evan_data_structure</artifactId>
+  <!-- <version>0.0.1-SNAPSHOT</version>
+  <name>data_structure</name>
+  <url>http://maven.apache.org</url> -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
