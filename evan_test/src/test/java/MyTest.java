@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 import org.junit.Test;
 
 import com.beust.jcommander.internal.Lists;
+import com.jcraft.jsch.JSchException;
 
 import idv.evan.design_pattern.enumFactory.ColorFactory;
 import idv.evan.design_pattern.enumFactory.Green;
 import idv.evan.design_pattern.enumFactory.Red;
+import idv.evan.tools.command.SSHManager;
 
 public class MyTest {
 
@@ -25,9 +27,7 @@ public class MyTest {
 	}
 
 	/**
-	 * 合併 Collection ， 並取得各種計算 
-	 * LongSummaryStatistics 
-	 * IntSummaryStatistics
+	 * 合併 Collection ， 並取得各種計算 LongSummaryStatistics IntSummaryStatistics
 	 * DoubleSummaryStatistics
 	 */
 	@Test
@@ -94,11 +94,41 @@ public class MyTest {
 		Set<String> result = array.stream().flatMap(s -> s.stream()).collect(Collectors.toSet());
 		System.out.println(result);
 	}
-	
+
 	@Test
 	public void testConstant() {
 		System.out.println(Double.MAX_VALUE);
 		System.out.println(Double.NaN);
+	}
+
+	@Test
+	public void testFilter() {
+		String strUserName = "";
+		String strPassword = "";
+		String strConnectionIP = "";
+		Integer intConnectionPort = 0;
+		Object[] verifiedValues = new Object[] { strUserName, strPassword, strConnectionIP, intConnectionPort };
+		verifiedValues = Arrays.stream(verifiedValues).filter(s -> s == null).peek(System.out::println)
+				.toArray(size -> new Object[size]);
+		boolean isBuild = verifiedValues.length == 0;
+		System.out.println(isBuild);
+	}
+
+	/**
+	 * 透過 Jsch 對遠端 Serve 下 Command
+	 * @throws JSchException
+	 */
+	@Test
+	public void testSSHManager() throws JSchException{
+		SSHManager manager = SSHManager.newInstance()
+				.withConnectionIP("172.16.34.139")
+				.withUserName("evan")
+				.withPassword("1108")
+				.withConnectionPort(22)
+				.build();
+		
+		manager.sendCommand("ps -ef|head -n 10");
+		
 	}
 
 }
